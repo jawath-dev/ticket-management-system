@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { apiGet } from "../api/client";
 
 function TicketList() {
+  const [searchParams] = useSearchParams();
   const [tickets, setTickets] = useState([]);
   const [loading, setLoading] = useState(true);
   const [pagination, setPagination] = useState(null);
@@ -12,7 +13,7 @@ function TicketList() {
   const [status, setStatus] = useState("");
   const [priority, setPriority] = useState("");
   const [category, setCategory] = useState("");
-  const [agent, setAgent] = useState("");
+  const [agent, setAgent] = useState(searchParams.get("agent") || "");
   const [sortBy, setSortBy] = useState("createdAt");
   const [sortOrder, setSortOrder] = useState("desc");
 

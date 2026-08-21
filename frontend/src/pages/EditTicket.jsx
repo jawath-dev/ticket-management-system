@@ -159,13 +159,22 @@ function EditTicket() {
           </select>
         </div>
 
-        <button
-          type="submit"
-          disabled={submitting}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors disabled:opacity-50"
-        >
-          {submitting ? "Saving..." : "Save Changes"}
-        </button>
+        <div className="flex gap-2">
+          <button
+            type="submit"
+            disabled={submitting}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors disabled:opacity-50"
+          >
+            {submitting ? "Saving..." : "Save Changes"}
+          </button>
+          <button
+            type="button"
+            onClick={() => navigate(`/tickets/${id}`)}
+            className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded transition-colors"
+          >
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );

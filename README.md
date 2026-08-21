@@ -176,9 +176,10 @@ ticket-management-system
 
 ## Extra Features
 
-- **SLA closing soon warning** - tickets due within the next 2 hours show a "SLA closing soon" indicator, in addition to the required overdue indicator. This gives agents a heads-up before a ticket actually breaches its SLA.
-- **Closed ticket protection** - once a ticket is CLOSED, editing, reassignment, and status changes are blocked on both the frontend and the backend, not just hidden in the UI.
-- **Overdue indicator on the tickets list** - not just the details page, so overdue tickets are visible at a glance while browsing the full list.
+* SLA closing soon warning - tickets due within the next 2 hours show a "SLA closing soon" indicator, in addition to the required overdue indicator. This gives agents a heads-up before a ticket actually breaches its SLA.
+* Closed ticket protection - once a ticket is CLOSED, editing, reassignment, and status changes are blocked on both the frontend and the backend, not just hidden in the UI.
+* Overdue indicator on the tickets list - not just the details page, so overdue tickets are visible at a glance while browsing the full list.
+* Agent and customer management - dedicated screens to add, edit, and delete agents and customers directly from the app, instead of relying only on seed data. Deleting an agent or customer that has existing tickets is blocked to protect data integrity.
 
 ## Notes
 

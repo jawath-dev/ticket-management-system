@@ -15,4 +15,31 @@ async function getCustomerById(id) {
   return rows[0];
 }
 
-module.exports = { getAllCustomers, getCustomerById };
+async function createCustomer(customer) {
+  const { name, email, phone } = customer;
+  const [result] = await pool.query(
+    "INSERT INTO customers (name, email, phone) VALUES (?, ?, ?)",
+    [name, email, phone || null],
+  );
+  return result.insertId;
+}
+
+async function updateCustomer(id, customer) {
+  const { name, email, phone } = customer;
+  await pool.query(
+    "UPDATE customers SET name = ?, email = ?, phone = ? WHERE id = ?",
+    [name, email, phone || null, id],
+  );
+}
+
+async function deleteCustomer(id) {
+  await pool.query("DELETE FROM customers WHERE id = ?", [id]);
+}
+
+module.exports = {
+  getAllCustomers,
+  getCustomerById,
+  createCustomer,
+  updateCustomer,
+  deleteCustomer,
+};

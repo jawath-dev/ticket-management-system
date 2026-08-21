@@ -18,6 +18,12 @@ function Navbar() {
         <Link to="/tickets" className={isActive("/tickets")}>
           Tickets
         </Link>
+        <Link to="/agents" className={isActive("/agents")}>
+          Agents
+        </Link>
+        <Link to="/customers" className={isActive("/customers")}>
+          Customers
+        </Link>
       </div>
       {location.pathname === "/" && (
         <Link

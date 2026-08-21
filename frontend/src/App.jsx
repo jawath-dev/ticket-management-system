@@ -5,6 +5,8 @@ import TicketList from "./pages/TicketList";
 import TicketDetails from "./pages/TicketDetails";
 import CreateTicket from "./pages/CreateTicket";
 import EditTicket from "./pages/EditTicket";
+import ManageAgents from "./pages/ManageAgents";
+import ManageCustomers from "./pages/ManageCustomers";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path="/tickets/:id" element={<TicketDetails />} />
         <Route path="/tickets/new" element={<CreateTicket />} />
         <Route path="/tickets/:id/edit" element={<EditTicket />} />
+        <Route path="/agents" element={<ManageAgents />} />
+        <Route path="/customers" element={<ManageCustomers />} />
       </Routes>
     </BrowserRouter>
   );

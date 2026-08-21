@@ -70,12 +70,15 @@ INSERT INTO tickets (subject, description, customer_id, agent_id, category_id, p
 ('Server timeout errors', 'Getting 504 errors during peak hours', 5, 2, 1, 'URGENT', 'OPEN', DATE_ADD(NOW(), INTERVAL 8 HOUR), NOW()),
 ('Feedback on new feature', 'General feedback about recent app update', 6, NULL, 4, 'LOW', 'CLOSED', DATE_ADD(NOW(), INTERVAL 72 HOUR), NOW());
 
--- Make a few tickets overdue for testing (using new IDs starting from 1001)
+-- Make a few tickets overdue for testing
 UPDATE tickets SET due_date = DATE_SUB(NOW(), INTERVAL 5 HOUR) WHERE id = 1001;
 UPDATE tickets SET due_date = DATE_SUB(NOW(), INTERVAL 2 DAY) WHERE id = 1004;
 UPDATE tickets SET due_date = DATE_SUB(NOW(), INTERVAL 1 DAY) WHERE id = 1021;
 
--- Sample comments (using new IDs starting from 1001)
+-- Make one ticket "closing soon" (due in 1 hour) to test SLA warning
+UPDATE tickets SET due_date = DATE_ADD(NOW(), INTERVAL 1 HOUR) WHERE id = 1002;
+
+-- Sample comments
 INSERT INTO ticket_comments (ticket_id, user_id, comment) VALUES
 (1001, 1, 'Checking the account settings now'),
 (1001, 2, 'Password reset link has been resent to the customer'),

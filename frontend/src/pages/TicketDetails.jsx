@@ -127,6 +127,12 @@ function TicketDetails() {
     ticket.status !== "RESOLVED" &&
     ticket.status !== "CLOSED";
 
+  const isClosingSoon =
+    !isOverdue &&
+    ticket.status !== "RESOLVED" &&
+    ticket.status !== "CLOSED" &&
+    new Date(ticket.due_date) - new Date() < 2 * 60 * 60 * 1000;
+
   const nextStatuses = allowedTransitions[ticket.status] || [];
 
   return (
@@ -167,6 +173,11 @@ function TicketDetails() {
 
         {isOverdue && (
           <p className="text-red-600 font-semibold mt-2">⚠ Overdue</p>
+        )}
+        {isClosingSoon && (
+          <p className="text-amber-600 font-semibold mt-2">
+            ⏰ SLA closing soon
+          </p>
         )}
 
         <p className="mt-3 text-gray-700">{ticket.description}</p>

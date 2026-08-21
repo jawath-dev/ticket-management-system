@@ -188,6 +188,12 @@ function TicketList() {
                 ticket.status !== "RESOLVED" &&
                 ticket.status !== "CLOSED";
 
+              const isClosingSoon =
+                !isOverdue &&
+                ticket.status !== "RESOLVED" &&
+                ticket.status !== "CLOSED" &&
+                new Date(ticket.due_date) - new Date() < 2 * 60 * 60 * 1000;
+
               return (
                 <tr
                   key={ticket.id}
@@ -198,6 +204,14 @@ function TicketList() {
                     {isOverdue && (
                       <span className="text-red-600 ml-1" title="Overdue">
                         ⚠
+                      </span>
+                    )}
+                    {isClosingSoon && (
+                      <span
+                        className="text-amber-600 ml-1"
+                        title="SLA closing soon"
+                      >
+                        ⏰
                       </span>
                     )}
                   </td>

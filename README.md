@@ -6,18 +6,18 @@ It allows support agents to create, assign, update, and manage customer support 
 
 ## Tech Stack
 
-* React.js
-* React Router
-* Tailwind CSS
-* Node.js
-* Express.js
-* MySQL
+- React.js
+- React Router
+- Tailwind CSS
+- Node.js
+- Express.js
+- MySQL
 
 ## Requirements
 
-* Node.js 18+
-* MySQL
-* MySQL Workbench
+- Node.js 18+
+- MySQL
+- MySQL Workbench
 
 ## Setup
 
@@ -96,19 +96,19 @@ Frontend:
 
 ## Features
 
-* Create support tickets
-* View ticket details
-* Update ticket details
-* Search tickets
-* Filter tickets
-* Sort tickets
-* Assign tickets to agents
-* Change ticket status
-* Add comments
-* View ticket history
-* Dashboard with ticket statistics
-* Overdue ticket tracking
-* Server-side pagination
+- Create support tickets
+- View ticket details
+- Update ticket details
+- Search tickets
+- Filter tickets
+- Sort tickets
+- Assign tickets to agents
+- Change ticket status
+- Add comments
+- View ticket history
+- Dashboard with ticket statistics
+- Overdue ticket tracking
+- Server-side pagination
 
 ## Ticket Priority and SLA
 
@@ -174,17 +174,23 @@ ticket-management-system
 └── README.md
 ```
 
+## Extra Features
+
+- **SLA closing soon warning** - tickets due within the next 2 hours show a "SLA closing soon" indicator, in addition to the required overdue indicator. This gives agents a heads-up before a ticket actually breaches its SLA.
+- **Closed ticket protection** - once a ticket is CLOSED, editing, reassignment, and status changes are blocked on both the frontend and the backend, not just hidden in the UI.
+- **Overdue indicator on the tickets list** - not just the details page, so overdue tickets are visible at a glance while browsing the full list.
+
 ## Notes
 
-* Authentication is not included because it was not part of the assignment requirements.
-* Customers and agents are added through the seed data.
-* Since there is no login system, the comment form has a `Post as` option.
-* SQL queries use parameters to help prevent SQL injection.
-* Ticket pagination is handled on the backend.
-* Closed tickets are locked from further changes.
+- Authentication is not included because it was not part of the assignment requirements.
+- Customers and agents are added through the seed data.
+- Since there is no login system, the comment form has a `Post as` option.
+- SQL queries use parameters to help prevent SQL injection.
+- Ticket pagination is handled on the backend.
+- Closed tickets are locked from further changes.
 
 ## Known Limitations
 
-* No automated tests
-* No authentication or authorization
-* Concurrent ticket updates are not handled
+- No automated tests
+- No authentication or authorization
+- Concurrent ticket updates are not handled
